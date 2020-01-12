@@ -1,12 +1,14 @@
 #ifndef GRACOLORRGBA_H
 #define GRACOLORRGBA_H
 
+#include "GRAType.h"
+
 typedef struct
 {
-  float r;
-  float g;
-  float b;
-  float a;
+  GRAFloat r;
+  GRAFloat g;
+  GRAFloat b;
+  GRAFloat a;
 } GRAColorRGBA;
 
 #endif
