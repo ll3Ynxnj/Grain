@@ -10,4 +10,7 @@ typedef struct
   GRAFloat radius;
 } GRACircle;
 
+static const GRACircle kGRACircleNone = {(GRAPoint){0, 0}, 0};
+static const GRACircle kGRACircleNorm = {(GRAPoint){0, 0}, 1};
+
 #endif

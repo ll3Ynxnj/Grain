@@ -6,8 +6,11 @@
 
 typedef struct
 {
-  GRAPoint point;
+  GRAPoint position;
   GRASize size;
 } GRARect;
+
+static const GRARect kGRARectNone = {{0, 0}, {0, 0}};
+static const GRARect kGRARectNorm = {{0, 0}, {1, 1}};
 
 #endif
