@@ -1,13 +1,12 @@
 #ifndef GRACIRCLE_H
 #define GRACIRCLE_H
 
-#include "GRAType.h"
 #include "GRAPoint.h"
 
 typedef struct
 {
   GRAPoint origin;
-  GRAFloat radius;
+  float radius;
 } GRACircle;
 
 static const GRACircle kGRACircleNone = {(GRAPoint){0, 0}, 0};

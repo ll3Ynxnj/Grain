@@ -1,12 +1,10 @@
 #ifndef GRASIZE_H
 #define GRASIZE_H
 
-#include "GRAType.h"
-
 typedef struct
 {
-  GRAFloat width;
-  GRAFloat height;
+  float width;
+  float height;
 } GRASize;
 
 static const GRASize kGRASizeNone = { 0, 0 };

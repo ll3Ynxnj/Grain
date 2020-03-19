@@ -1,12 +1,10 @@
 #ifndef GRAPOINT_H
 #define GRAPOINT_H
 
-#include "GRAType.h"
-
 typedef struct
 {
-  GRAFloat x;
-  GRAFloat y;
+  float x;
+  float y;
 } GRAPoint;
 
 static const GRAPoint kGRAPointNone = { 0, 0 };

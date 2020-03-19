@@ -1,14 +1,12 @@
 #ifndef GRACOLOR_H
 #define GRACOLOR_H
 
-#include "GRAType.h"
-
 typedef struct
 {
-  GRAFloat r;
-  GRAFloat g;
-  GRAFloat b;
-  GRAFloat a;
+  float r;
+  float g;
+  float b;
+  float a;
 } GRAColor;
 
 static const GRAColor kGRAColorBlack   = { 0.00, 0.00, 0.00, 1.00 };
