@@ -1,18 +1,14 @@
 #ifndef GRARECT_HPP
 #define GRARECT_HPP
 
-#include "GRAPoint.hpp"
-#include "GRASize.hpp"
+#include "GRAVector.hpp"
 
-struct GRARect
+template <typename T> struct GRARect
 {
-  GRAPoint pos;
-  GRASize size;
+  GRAVec3<T> pos;
+  GRAVec3<T> size;
 
-  GRARect(GRAPoint aPos, GRASize aSize) : pos(aPos), size(aSize) {};
+  GRARect<T>(GRAVec3<T> aPos, GRAVec3<T> aSize) : pos(aPos), size(aSize) {};
 };
-
-static const GRARect kGRARectNone = GRARect(GRAPoint(0), GRASize(0));
-static const GRARect kGRARectNorm = GRARect(GRAPoint(0), GRASize(0));
 
 #endif // GRARECT_HPP
