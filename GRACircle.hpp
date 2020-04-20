@@ -1,5 +1,5 @@
-#ifndef GRACIRCLE_HPP
-#define GRACIRCLE_HPP
+#ifndef GRAIN_GRACIRCLE_HPP
+#define GRAIN_GRACIRCLE_HPP
 
 #include "GRAVector.hpp"
 
@@ -11,4 +11,4 @@ template <typename T> struct GRACircle
   GRACircle<T>(GRAVec3<T> aOrigin, float aRadius) : origin(aOrigin), radius(aRadius) {}
 };
 
-#endif // GRACIRCLE_HPP
+#endif // GRAIN_GRACIRCLE_HPP

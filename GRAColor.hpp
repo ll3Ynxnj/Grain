@@ -1,5 +1,5 @@
-#ifndef GRACOLOR_HPP
-#define GRACOLOR_HPP
+#ifndef GRAIN_GRACOLOR_HPP
+#define GRAIN_GRACOLOR_HPP
 
 struct GRAColorRGBA8888
 {
@@ -12,4 +12,4 @@ struct GRAColorRGBA8888
   GRAColorRGBA8888(float aR, float aG, float aB, float aA) : r(aR), g(aG), b(aB), a(aA) {};
 };
 
-#endif // GRACOLOR_HPP
+#endif // GRAIN_GRACOLOR_HPP

@@ -1,5 +1,5 @@
-#ifndef GRAVECTOR_HPP
-#define GRAVECTOR_HPP
+#ifndef GRAIN_GRAVECTOR_HPP
+#define GRAIN_GRAVECTOR_HPP
 
 template <typename T> struct GRAVec2
 {
@@ -22,4 +22,4 @@ template <typename T> struct GRAVec4
   T x, y, z, w;
 };
 
-#endif //GRAVECTOR_HPP
+#endif // GRAIN_GRAVECTOR_HPP

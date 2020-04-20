@@ -1,5 +1,5 @@
-#ifndef GRARECT_HPP
-#define GRARECT_HPP
+#ifndef GRAIN_GRARECT_HPP
+#define GRAIN_GRARECT_HPP
 
 #include "GRAVector.hpp"
 
@@ -11,4 +11,4 @@ template <typename T> struct GRARect
   GRARect<T>(GRAVec3<T> aPos, GRAVec3<T> aSize) : pos(aPos), size(aSize) {};
 };
 
-#endif // GRARECT_HPP
+#endif // GRAIN_GRARECT_HPP
