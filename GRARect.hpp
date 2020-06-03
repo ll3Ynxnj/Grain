@@ -5,10 +5,8 @@
 
 template <typename T> struct GRARect
 {
-  GRAVec3<T> pos;
-  GRAVec3<T> size;
-
-  GRARect<T>(GRAVec3<T> aPos, GRAVec3<T> aSize) : pos(aPos), size(aSize) {};
+  GRAVec2<T> pos;
+  GRAVec2<T> size;
 };
 
 #endif // GRAIN_GRARECT_HPP
