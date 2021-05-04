@@ -5,6 +5,9 @@ template <typename T> struct GRAVec2
 {
   T x, y;
 
+  explicit GRAVec2<T>(const T &aV) : x(aV), y(aV) {};
+  GRAVec2<T>(const T &aX, const T &aY) : x(aX), y(aY) {};
+
   using Vec2 = GRAVec2<T>;
 
   Vec2 operator +(const Vec2 &v) const { return { x + v.x, y + v.y }; };
@@ -25,6 +28,9 @@ template <typename T> struct GRAVec2
 template <typename T> struct GRAVec3
 {
   T x, y, z;
+
+  explicit GRAVec3<T>(const T &aV) : x(aV), y(aV), z(aV) {};
+  GRAVec3<T>(const T &aX, const T &aY, const T &aZ) : x(aX), y(aY), z(aZ) {};
 
   using Vec3 = GRAVec3<T>;
 
@@ -49,6 +55,10 @@ template <typename T> struct GRAVec3
 template <typename T> struct GRAVec4
 {
   T x, y, z, w;
+
+  explicit GRAVec4<T>(const T &aV) : x(aV), y(aV), z(aV), w(aV) {};
+  GRAVec4<T>(const T &aX, const T &aY, const T &aZ, const T &aW) :
+    x(aX), y(aY), z(aZ), w(aW) {};
 
   using Vec4 = GRAVec4<T>;
 

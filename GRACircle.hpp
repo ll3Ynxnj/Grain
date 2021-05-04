@@ -6,7 +6,10 @@
 template <typename T> struct GRACircle
 {
   GRAVec2<T> origin;
-  float radius;
+  T radius;
+
+  GRACircle(const GRAVec2<T> &aOrigin, T aRadius) :
+  origin(aOrigin), radius(aRadius) {}
 };
 
 #endif // GRAIN_GRACIRCLE_HPP

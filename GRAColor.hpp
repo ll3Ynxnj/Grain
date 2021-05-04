@@ -1,12 +1,15 @@
 #ifndef GRAIN_GRACOLOR_HPP
 #define GRAIN_GRACOLOR_HPP
 
-struct GRAColorRGBA8888
+template <typename T> struct GRAColorRGBA8888
 {
-  float r;
-  float g;
-  float b;
-  float a;
+  T r;
+  T g;
+  T b;
+  T a;
+
+  GRAColorRGBA8888(T aR, T aG, T aB, T aA) :
+  r(aR), g(aG), b(aB), a(aA) {};
 };
 
 #endif // GRAIN_GRACOLOR_HPP
