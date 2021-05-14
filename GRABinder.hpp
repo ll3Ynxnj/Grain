@@ -31,10 +31,7 @@ public:
 
     void SetName(const std::string &aName) { _name = aName; };
 
-    virtual void Print() const
-    {
-      GRA_PRINT("%04x : %s\n", _id, _name.c_str());
-    }
+    void Print() const { GRA_PRINT("%04x : %s\n", _id, _name.c_str()); }
 
   private:
     void SetId(size_t aId) { _id = aId; };
