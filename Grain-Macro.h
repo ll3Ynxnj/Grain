@@ -1,5 +1,5 @@
-#ifndef GRAIN_ENGINE_GRAIN_MACRO_H
-#define GRAIN_ENGINE_GRAIN_MACRO_H
+#ifndef GRAIN_GRAINMACRO_H
+#define GRAIN_GRAINMACRO_H
 
 #include <cstdlib>
 #include <stdio.h>
@@ -67,4 +67,4 @@ GRADebug::Assert(__FILE__, __FUNCTION__, __LINE__, __VA_ARGS__)\
 aTypeName(const aTypeName&);\
 void operator=(const aTypeName&)\
 
-#endif // GRAIN_ENGINE_GRAIN_MACRO_H
+#endif // GRAIN_GRAINMACRO_H

@@ -70,5 +70,4 @@ static const GRASize kGRASizeUndefined = 0;
 
 static const char *kGRACharUndefined  = " == UNDEFINED == ";
 
-
 #endif //ANHR_GRATYPE_HPP
