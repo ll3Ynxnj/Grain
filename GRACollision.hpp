@@ -1,10 +1,10 @@
 #ifndef ANHR_GRACOLLISION_HPP
 #define ANHR_GRACOLLISION_HPP
 
-#include "GRAPoint.hpp"
-#include "GRALine.hpp"
-#include "GRARect.hpp"
-#include "GRACircle.hpp"
+#include "GRAType/GRAPoint.hpp"
+#include "GRAType/GRALine.hpp"
+#include "GRAType/GRARect.hpp"
+#include "GRAType/GRACircle.hpp"
 
 template <typename T> struct GRACollision {
   /*
