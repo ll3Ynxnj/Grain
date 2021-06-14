@@ -43,8 +43,8 @@ public:
 
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
+      _binder->UpdateMap(_name, aName);
       _name = aName;
-      _binder->RegisterToMap(this, aError);
     }
   };
 private:
@@ -59,9 +59,9 @@ public:
   virtual ~GRABinder() {};
 
   void Init(Error *aError) {};
+
   void Bind(Item *aItem, Error *aError) {
-    if (_emptyIndices.size())
-    {
+    if (_emptyIndices.size()) {
       size_t id = _emptyIndices.top();
       aItem->SetId(id);
       if (_items[id] != nullptr)
@@ -70,20 +70,21 @@ public:
       _items[id] = aItem;
       _emptyIndices.pop();
     }
-    else
-    {
+    else {
       aItem->SetId(_items.size());
       _items.push_back(aItem);
     }
     this->RegisterToMap(aItem, aError);
   };
+
   void Unbind(Item *aItem, Error *aError) {
-    size_t id = aItem->GetId();
-    _items[id] = nullptr;
+    _items[aItem->GetId()] = nullptr;
+    _itemMap[aItem->GetName()];
   };
+
   const std::vector<Item *> &GetItems() const { return _items; }
-  const Item *GetItem(const std::string &aName, Error *aError) const
-  {
+
+  const Item *GetItem(const std::string &aName, Error *aError) const {
     try {
       return _items[_itemMap.at(aName)];
     } catch(std::out_of_range) {
@@ -91,16 +92,27 @@ public:
       return nullptr;
     };
   };
-  void RegisterToMap(const Item *aItem, Error *aError) {
+
+  void RegisterToMap(Item *aItem, Error *aError) {
+    /*
     if (aItem->GetName() == kGRACharUndefined) {
       //*aError = Error::RegisterUndefinedKeyToMap;
       return;
     }
+     */
     if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
       *aError = Error::RegisterExistingKeyToMap;
       return;
     }
+    if (aItem->GetName() == kGRACharUndefined) {
+      aItem->SetName(grautil::format("PLAObject-%d", aItem->GetId()), aError);
+    }
     _itemMap[aItem->GetName()] = aItem->GetId();
+  }
+
+  void UpdateMap(const std::string &aFrom, const std::string&aTo) {
+    _itemMap[aTo] = _itemMap[aFrom];
+    _itemMap.erase(aFrom);
   }
 };
 
