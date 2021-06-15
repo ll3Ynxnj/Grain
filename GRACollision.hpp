@@ -6,7 +6,8 @@
 #include "GRAType/GRARect.hpp"
 #include "GRAType/GRACircle.hpp"
 
-template <typename T> struct GRACollision {
+template <typename T> class GRACollision {
+public:
   /*
   static bool IsCollideWithPointAndPoint(const PLAPoint &aPoint0,
                                          const PLAPoint &aPoint1);
