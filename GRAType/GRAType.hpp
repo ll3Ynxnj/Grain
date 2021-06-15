@@ -68,6 +68,6 @@ using GRASize = size_t;
 static const GRASize kGRASizeMax = SIZE_MAX;
 static const GRASize kGRASizeUndefined = 0;
 
-static const char *kGRACharUndefined  = " == UNDEFINED == ";
+static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
 #endif //ANHR_GRATYPE_HPP

@@ -4,6 +4,7 @@
 #include <vector>
 #include <stack>
 //#include <stdexcept>
+#include "Grain.h"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
 template <typename T> class GRABinder
@@ -26,7 +27,7 @@ public:
   class Item
   {
     size_t _id = kGRASizeUndefined;
-    std::string _name = kGRACharUndefined;
+    std::string _name = kGRAStrUndefined;
     GRABinder *_binder = nullptr;
 
   protected:
@@ -95,7 +96,7 @@ public:
 
   void RegisterToMap(Item *aItem, Error *aError) {
     /*
-    if (aItem->GetName() == kGRACharUndefined) {
+    if (aItem->GetName() == kGRAStrUndefined) {
       //*aError = Error::RegisterUndefinedKeyToMap;
       return;
     }
@@ -104,7 +105,7 @@ public:
       *aError = Error::RegisterExistingKeyToMap;
       return;
     }
-    if (aItem->GetName() == kGRACharUndefined) {
+    if (aItem->GetName() == kGRAStrUndefined) {
       aItem->SetName(grautil::format("PLAObject-%d", aItem->GetId()), aError);
     }
     _itemMap[aItem->GetName()] = aItem->GetId();
