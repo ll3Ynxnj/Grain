@@ -1,10 +1,10 @@
 #ifndef ANHR_GRACOLLISION_HPP
 #define ANHR_GRACOLLISION_HPP
 
-#include "GRAType/GRAPoint.hpp"
-#include "GRAType/GRALine.hpp"
-#include "GRAType/GRARect.hpp"
-#include "GRAType/GRACircle.hpp"
+#include "Type/GRAPoint.hpp"
+#include "Type/GRALine.hpp"
+#include "Type/GRARect.hpp"
+#include "Type/GRACircle.hpp"
 
 template <typename T> class GRACollision {
 public:

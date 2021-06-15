@@ -1,14 +1,6 @@
 #ifndef ANHR_GRATYPE_HPP
 #define ANHR_GRATYPE_HPP
 
-#include "GRAColor.hpp"
-#include "GRAPoint.hpp"
-#include "GRALine.hpp"
-#include "GRARect.hpp"
-#include "GRACircle.hpp"
-#include "GRAVector.hpp"
-#include "GRATransform.hpp"
-
 //-- Boolean value --///////////////////////////////////////////////////////////
 using GRABool = bool;
 

@@ -1,7 +1,3 @@
-//
-// Created by Kentaro Kawai on 2021/02/03.
-//
-
 #ifndef ANHR_GRAFUNCTOR_HPP
 #define ANHR_GRAFUNCTOR_HPP
 
