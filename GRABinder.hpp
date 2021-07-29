@@ -36,7 +36,7 @@ public:
     explicit Item(GRABinder<T> *aBinder) : _binder(aBinder) {}
 
   public:
-    Item() = delete;
+    Item() {};
     virtual ~Item() {};
 
     size_t GetId() const { return _id; };
@@ -44,7 +44,7 @@ public:
 
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
-      _binder->UpdateMap(_name, aName);
+      if (_name != kPLAStrUndefined) { _binder->UpdateMap(_name, aName); }
       _name = aName;
     }
   };
@@ -53,10 +53,8 @@ private:
   std::map<std::string, GRAInt> _itemMap = std::map<std::string, GRAInt>();
   std::stack<size_t> _emptyIndices = std::stack<size_t>();
 
-protected:
-  GRABinder() {};
-
 public:
+  GRABinder() {};
   virtual ~GRABinder() {};
 
   void Init(Error *aError) {};
@@ -86,13 +84,17 @@ public:
   const std::vector<Item *> &GetItems() const { return _items; }
 
   const Item *GetItem(const std::string &aName, Error *aError) const {
+    return RefItem(aName, aError);
+  };
+
+  Item *RefItem(const std::string &aName, Error *aError) const {
     try {
       return _items[_itemMap.at(aName)];
     } catch(std::out_of_range) {
       *aError = Error::NotExistInMap;
       return nullptr;
     };
-  };
+  }
 
   void RegisterToMap(Item *aItem, Error *aError) {
     /*
