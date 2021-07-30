@@ -1,5 +1,5 @@
-#ifndef ANHR_GRATYPE_HPP
-#define ANHR_GRATYPE_HPP
+#ifndef GRAIN_PLATYPE_HPP
+#define GRAIN_PLATYPE_HPP
 
 //-- Boolean value --///////////////////////////////////////////////////////////
 using GRABool = bool;
@@ -70,4 +70,4 @@ static const GRASize kGRASizeUndefined = 0;
 
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
-#endif //ANHR_GRATYPE_HPP
+#endif //GRAIN_PLATYPE_HPP

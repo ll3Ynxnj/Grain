@@ -2,8 +2,8 @@
 // Created by Kentaro Kawai on 2021/02/04.
 //
 
-#ifndef ANHR_GRALISTENER_HPP
-#define ANHR_GRALISTENER_HPP
+#ifndef GRAIN_PLALISTENER_HPP
+#define GRAIN_PLALISTENER_HPP
 
 #include "GRAFunctor.hpp"
 
@@ -19,4 +19,4 @@ public:
   { _functor.SetFunction(aKey, aFunc); }
 };
 
-#endif //ANHR_GRALISTENER_HPP
+#endif //GRAIN_PLALISTENER_HPP

@@ -1,5 +1,5 @@
-#ifndef ANHR_GRAFUNCTOR_HPP
-#define ANHR_GRAFUNCTOR_HPP
+#ifndef GRAIN_PLAFUNCTOR_HPP
+#define GRAIN_PLAFUNCTOR_HPP
 
 #include <map>
 #include <string>
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif //ANHR_GRAFUNCTOR_HPP
+#endif //GRAIN_PLAFUNCTOR_HPP

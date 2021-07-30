@@ -1,5 +1,5 @@
-#ifndef ANHR_GRACOLLISION_HPP
-#define ANHR_GRACOLLISION_HPP
+#ifndef GRAIN_PLACOLLISION_HPP
+#define GRAIN_PLACOLLISION_HPP
 
 #include "Type/GRAPoint.hpp"
 #include "Type/GRALine.hpp"
@@ -135,5 +135,5 @@ public:
   };
 };
 
-#endif //ANHR_GRACOLLISION_HPP
+#endif //GRAIN_PLACOLLISION_HPP
 

@@ -1,5 +1,5 @@
-#ifndef ANHR_GRATILE_HPP
-#define ANHR_GRATILE_HPP
+#ifndef GRAIN_PLATILE_HPP
+#define GRAIN_PLATILE_HPP
 
 #include "GRAType.hpp"
 
@@ -12,4 +12,4 @@ template <typename T> struct GRATile
   tileSize(aTileSize), chipSize(aChipSize) {};
 };
 
-#endif //ANHR_GRATILE_HPP
+#endif //GRAIN_PLATILE_HPP
