@@ -25,5 +25,4 @@ public:
   { _functions[aKey] = aFunc; }
 };
 
-
 #endif //GRAIN_PLAFUNCTOR_HPP

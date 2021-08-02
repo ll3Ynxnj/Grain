@@ -59,7 +59,8 @@ public:
 
   void Init(Error *aError) {};
 
-  void Bind(Item *aItem, Error *aError) {
+  void Bind(Item *aItem, Error *aError)
+  {
     if (_emptyIndices.size()) {
       size_t id = _emptyIndices.top();
       aItem->SetId(id);
@@ -68,26 +69,28 @@ public:
       { *aError = Error::OverwriteItem; }
       _items[id] = aItem;
       _emptyIndices.pop();
-    }
-    else {
+    } else {
       aItem->SetId(_items.size());
       _items.push_back(aItem);
     }
     this->RegisterToMap(aItem, aError);
   };
 
-  void Unbind(Item *aItem, Error *aError) {
+  void Unbind(Item *aItem, Error *aError)
+  {
     _items[aItem->GetId()] = nullptr;
     _itemMap[aItem->GetName()];
   };
 
   const std::vector<Item *> &GetItems() const { return _items; }
 
-  const Item *GetItem(const std::string &aName, Error *aError) const {
+  const Item *GetItem(const std::string &aName, Error *aError) const
+  {
     return RefItem(aName, aError);
   };
 
-  Item *RefItem(const std::string &aName, Error *aError) const {
+  Item *RefItem(const std::string &aName, Error *aError) const
+  {
     try {
       return _items[_itemMap.at(aName)];
     } catch(std::out_of_range) {
@@ -96,7 +99,8 @@ public:
     };
   }
 
-  void RegisterToMap(Item *aItem, Error *aError) {
+  void RegisterToMap(Item *aItem, Error *aError)
+  {
     /*
     if (aItem->GetName() == kGRAStrUndefined) {
       //*aError = Error::RegisterUndefinedKeyToMap;
@@ -113,7 +117,8 @@ public:
     _itemMap[aItem->GetName()] = aItem->GetId();
   }
 
-  void UpdateMap(const std::string &aFrom, const std::string&aTo) {
+  void UpdateMap(const std::string &aFrom, const std::string&aTo)
+  {
     _itemMap[aTo] = _itemMap[aFrom];
     _itemMap.erase(aFrom);
   }

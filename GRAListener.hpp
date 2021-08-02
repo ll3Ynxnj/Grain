@@ -7,7 +7,8 @@
 
 #include "GRAFunctor.hpp"
 
-template <typename Context, typename Key> class GRAListener {
+template <typename Context, typename Key> class GRAListener
+{
   GRAFunctor<Context, Key> _functor = GRAFunctor<Context, Key>();
 
 public:

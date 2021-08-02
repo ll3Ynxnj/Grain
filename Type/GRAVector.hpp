@@ -80,5 +80,4 @@ template <typename T> struct GRAVec4
   void operator /=(T s) { x /= s; y /= s; z /= s; w /= s; }
 };
 
-
 #endif // GRAIN_GRAVECTOR_HPP
