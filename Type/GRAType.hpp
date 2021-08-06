@@ -62,11 +62,13 @@ static const GRAUInt64 kGRAUInt64Undefined = kGRAUInt64Max;
 
 //-- Floating point value --////////////////////////////////////////////////////
 using GRAFloat = float_t;
+static const GRAFloat kGRAFloatMax = MAXFLOAT;
+static const GRAFloat kGRAFloatUndefined = kGRAFloatMax;
 
 //-- Size value --//////////////////////////////////////////////////////////////
 using GRASize = size_t;
 static const GRASize kGRASizeMax = SIZE_MAX;
-static const GRASize kGRASizeUndefined = 0;
+static const GRASize kGRASizeUndefined = kGRASizeMax;
 
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
