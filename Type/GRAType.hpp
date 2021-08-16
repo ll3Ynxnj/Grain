@@ -65,6 +65,10 @@ using GRAFloat = float_t;
 static const GRAFloat kGRAFloatMax = MAXFLOAT;
 static const GRAFloat kGRAFloatUndefined = kGRAFloatMax;
 
+using GRADouble = double_t;
+static const GRADouble kGRADoubleMax = MAXFLOAT;
+static const GRADouble kGRADoubleUndefined = kGRADoubleMax;
+
 //-- Size value --//////////////////////////////////////////////////////////////
 using GRASize = size_t;
 static const GRASize kGRASizeMax = SIZE_MAX;
