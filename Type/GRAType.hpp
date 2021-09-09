@@ -74,6 +74,7 @@ using GRASize = size_t;
 static const GRASize kGRASizeMax = SIZE_MAX;
 static const GRASize kGRASizeUndefined = kGRASizeMax;
 
+//-- StringValue --/////////////////////////////////////////////////////////////
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
 #endif //GRAIN_PLATYPE_HPP
