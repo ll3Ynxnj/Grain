@@ -77,4 +77,9 @@ static const GRASize kGRASizeUndefined = kGRASizeMax;
 //-- StringValue --/////////////////////////////////////////////////////////////
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
+//-- OtherValue --//////////////////////////////////////////////////////////////
+using GRATimeInterval = GRADouble;
+static const GRATimeInterval kGRATimeIntervalMax = kGRADoubleMax;
+static const GRATimeInterval kGRATimeIntervalUndefined = kGRATimeIntervalMax;
+
 #endif //GRAIN_PLATYPE_HPP
