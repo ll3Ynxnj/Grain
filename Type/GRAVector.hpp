@@ -3,8 +3,9 @@
 
 template <typename T> struct GRAVec2
 {
-  T x, y;
+  T x = 0, y = 0;
 
+  GRAVec2() {};
   explicit GRAVec2<T>(const T &aV) : x(aV), y(aV) {};
   GRAVec2<T>(const T &aX, const T &aY) : x(aX), y(aY) {};
 
@@ -27,8 +28,9 @@ template <typename T> struct GRAVec2
 
 template <typename T> struct GRAVec3
 {
-  T x, y, z;
+  T x = 0, y = 0, z = 0;
 
+  GRAVec3() {};
   explicit GRAVec3<T>(const T &aV) : x(aV), y(aV), z(aV) {};
   GRAVec3<T>(const T &aX, const T &aY, const T &aZ) : x(aX), y(aY), z(aZ) {};
 
@@ -54,8 +56,9 @@ template <typename T> struct GRAVec3
 
 template <typename T> struct GRAVec4
 {
-  T x, y, z, w;
+  T x = 0, y = 0, z = 0, w = 0;
 
+  GRAVec4() {};
   explicit GRAVec4<T>(const T &aV) : x(aV), y(aV), z(aV), w(aV) {};
   GRAVec4<T>(const T &aX, const T &aY, const T &aZ, const T &aW) :
     x(aX), y(aY), z(aZ), w(aW) {};
