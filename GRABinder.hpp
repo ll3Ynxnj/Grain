@@ -79,7 +79,13 @@ public:
   void Unbind(Item *aItem, Error *aError)
   {
     _items[aItem->GetId()] = nullptr;
-    _itemMap[aItem->GetName()];
+    /*
+    if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
+      *aError = Error::NotExistInMap;
+      return;
+    }
+     */
+    _itemMap.erase(aItem->GetName());
   };
 
   const std::vector<Item *> &GetItems() const { return _items; }
