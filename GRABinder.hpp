@@ -120,6 +120,12 @@ public:
     if (aItem->GetName() == kGRAStrUndefined) {
       aItem->SetName(grautil::format("PLAObject-%d", aItem->GetId()), aError);
     }
+    else if (_itemMap.contains(aItem->GetName())) {
+      aItem->SetName(grautil::format("%s-%d",
+                                     aItem->GetName().c_str(),
+                                     aItem->GetId()),
+                     aError);
+    }
     _itemMap[aItem->GetName()] = aItem->GetId();
   }
 
