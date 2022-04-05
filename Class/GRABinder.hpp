@@ -4,7 +4,8 @@
 #include <vector>
 #include <stack>
 #include <map>
-#include "Grain.h"
+
+#include "Grain/Grain-Util.h"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
 template <typename T> class GRABinder
@@ -13,6 +14,10 @@ public:
   enum class Error : GRAInt
   {
     OverwriteItem,
+
+    NameConversion,
+    NameOverride,
+    NameConflict,
 
     //RegisterUndefinedKeyToMap,
     RegisterExistingKeyToMap,
@@ -44,8 +49,23 @@ public:
 
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
-      if (_name != kPLAStrUndefined) { _binder->UpdateMap(_name, aName); }
-      _name = aName;
+      std::string newName = aName;
+      if (_name != kPLAStrUndefined) {
+        if (_name != aName) {
+          *aError = Error::NameOverride;
+          if (_binder->IsExistItem(aName)) {
+            *aError = Error::NameConversion;
+            newName = aName + "-" + std::to_string(_id);
+            if (_binder->IsExistItem(newName))
+            {
+              *aError = Error::NameConflict;
+              return;
+            }
+          }
+        }
+        _binder->UpdateMap(_name, newName);
+      }
+      _name = newName;
     }
   };
 private:
@@ -87,6 +107,13 @@ public:
      */
     _itemMap.erase(aItem->GetName());
   };
+
+  GRABool IsExistItem(const std::string &aName)
+  {
+    Error error;
+    const Item *item = this->GetItem(aName, &error);
+    return item;
+  }
 
   const std::vector<Item *> &GetItems() const { return _items; }
 

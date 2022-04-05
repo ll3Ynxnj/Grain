@@ -4,8 +4,6 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <stdarg.h>
-//#include <string>
-//#include <vector>
 
 namespace GRADebug
 {

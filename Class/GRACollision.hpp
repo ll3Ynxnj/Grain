@@ -1,10 +1,10 @@
 #ifndef GRAIN_PLACOLLISION_HPP
 #define GRAIN_PLACOLLISION_HPP
 
-#include "Type/GRAPoint.hpp"
-#include "Type/GRALine.hpp"
-#include "Type/GRARect.hpp"
-#include "Type/GRACircle.hpp"
+#include "Grain/Type/GRAPoint.hpp"
+#include "Grain/Type/GRALine.hpp"
+#include "Grain/Type/GRARect.hpp"
+#include "Grain/Type/GRACircle.hpp"
 
 template <typename T> class GRACollision {
 public:
@@ -136,4 +136,3 @@ public:
 };
 
 #endif //GRAIN_PLACOLLISION_HPP
-
