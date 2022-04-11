@@ -105,6 +105,7 @@ public:
       return;
     }
      */
+    _emptyIndices.push(aItem->GetId());
     _itemMap.erase(aItem->GetName());
   };
 
