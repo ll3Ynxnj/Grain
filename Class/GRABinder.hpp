@@ -46,6 +46,7 @@ public:
 
     size_t GetId() const { return _id; };
     const std::string &GetName() const { return _name; };
+    virtual const char *GetBinderItemTypeName() const = 0;
 
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
@@ -146,7 +147,9 @@ public:
       return;
     }
     if (aItem->GetName() == kGRAStrUndefined) {
-      aItem->SetName(grautil::format("PLAObject-%d", aItem->GetId()), aError);
+      aItem->SetName(grautil::format("%s-%d",
+                                     aItem->GetBinderItemTypeName(),
+                                     aItem->GetId()), aError);
     }
     else if (_itemMap.contains(aItem->GetName())) {
       aItem->SetName(grautil::format("%s-%d",
