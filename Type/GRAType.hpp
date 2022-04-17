@@ -75,11 +75,17 @@ static const GRASize kGRASizeMax = SIZE_MAX;
 static const GRASize kGRASizeUndefined = kGRASizeMax;
 
 //-- StringValue --/////////////////////////////////////////////////////////////
+using GRAString = std::string;
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
 
 //-- OtherValue --//////////////////////////////////////////////////////////////
 using GRATimeInterval = GRADouble;
 static const GRATimeInterval kGRATimeIntervalMax = kGRADoubleMax;
 static const GRATimeInterval kGRATimeIntervalUndefined = kGRATimeIntervalMax;
+
+//-- Identifier --//////////////////////////////////////////////////////////////
+using GRAId = GRASize;
+static const GRAId kGRAIdMax = kGRASizeMax;
+static const GRAId kGRAIdUndefined = kGRAIdMax;
 
 #endif //GRAIN_PLATYPE_HPP

@@ -25,6 +25,8 @@ public:
     NotExistInItems,
     NotExistInMap,
 
+    OutOfRange,
+
     kNumberOfItems,
     None = kGRAIntMin
   };
@@ -44,8 +46,8 @@ public:
     Item() {};
     virtual ~Item() {};
 
-    size_t GetId() const { return _id; };
-    const std::string &GetName() const { return _name; };
+    GRASize GetId() const { return _id; };
+    const GRAString &GetName() const { return _name; };
     virtual const char *GetBinderItemTypeName() const = 0;
 
     void SetId(size_t aId) { _id = aId; };
@@ -71,7 +73,7 @@ public:
   };
 private:
   std::vector<Item *> _items = std::vector<Item *>();
-  std::map<std::string, GRAInt> _itemMap = std::map<std::string, GRAInt>();
+  std::map<std::string, GRASize> _itemMap = std::map<std::string, GRASize>();
   std::stack<size_t> _emptyIndices = std::stack<size_t>();
 
 public:
@@ -124,12 +126,27 @@ public:
     return RefItem(aName, aError);
   };
 
+  const Item *GetItem(GRASize aId, Error *aError)
+  {
+    return RefItem(aId, aError);
+  };
+
   Item *RefItem(const std::string &aName, Error *aError) const
   {
     try {
       return _items[_itemMap.at(aName)];
     } catch(std::out_of_range) {
       *aError = Error::NotExistInMap;
+      return nullptr;
+    };
+  }
+
+  Item *RefItem(GRASize aId, Error *aError)
+  {
+    if (aId < _items.size()) {
+      return _items[aId];
+    } else {
+      *aError = Error::OutOfRange;
       return nullptr;
     };
   }
