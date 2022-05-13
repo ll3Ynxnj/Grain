@@ -15,7 +15,7 @@ public:
   {
     OverwriteItem,
 
-    NameConversion,
+    NameConvertedBySystem,
     NameOverride,
     NameConflict,
 
@@ -57,7 +57,7 @@ public:
         if (_name != aName) {
           *aError = Error::NameOverride;
           if (_binder->IsExistItem(aName)) {
-            *aError = Error::NameConversion;
+            *aError = Error::NameConvertedBySystem;
             newName = aName + "-" + std::to_string(_id);
             if (_binder->IsExistItem(newName))
             {
@@ -67,6 +67,9 @@ public:
           }
         }
         _binder->UpdateMap(_name, newName);
+      }
+      if (newName == "StageContext") {
+        GRA_TRACE("");
       }
       _name = newName;
     }
