@@ -14,10 +14,10 @@ public:
   GRAFunctor() {};
   ~GRAFunctor() {};
 
-  void RunFunction(const Key &aKey, Context *aContext)
+  void RunFunction(const Key &aKey, Context *aContext) const
   {
     if (!_functions.contains(aKey)) { return; }
-    _functions[aKey](aContext);
+    _functions.at(aKey)(aContext);
   }
 
   void SetFunction(const Key &aKey,
