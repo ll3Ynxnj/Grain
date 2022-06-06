@@ -158,7 +158,7 @@ public:
   {
     /*
     if (aItem->GetName() == kGRAStrUndefined) {
-      //*aError = Error::RegisterUndefinedKeyToMap;
+      // *aError = Error::RegisterUndefinedKeyToMap;
       return;
     }
      */

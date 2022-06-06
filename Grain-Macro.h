@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
+
 namespace GRADebug
 {
   static const char *kLogFormat = "[%s]%s/%s(%3d) : %s\n";
@@ -66,3 +69,5 @@ aTypeName(const aTypeName&);\
 void operator=(const aTypeName&)\
 
 #endif // GRAIN_GRAINMACRO_H
+
+#pragma clang diagnostic pop
