@@ -5,7 +5,7 @@
 #ifndef GRAIN_PLALISTENER_HPP
 #define GRAIN_PLALISTENER_HPP
 
-#include "Grain/Class/GRAFunctor.hpp"
+#include "Grain/Object/GRAFunctor.hpp"
 
 template <typename Context, typename Key> class GRAListener
 {
