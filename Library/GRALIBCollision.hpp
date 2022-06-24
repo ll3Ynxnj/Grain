@@ -1,12 +1,12 @@
 #ifndef GRAIN_PLACOLLISION_HPP
 #define GRAIN_PLACOLLISION_HPP
 
-#include "Grain/Primitive/GRAPoint.hpp"
-#include "Grain/Primitive/GRALine.hpp"
-#include "Grain/Primitive/GRARect.hpp"
-#include "Grain/Primitive/GRACircle.hpp"
+#include "Grain/Primitive/GRAPRMPoint.hpp"
+#include "Grain/Primitive/GRAPRMLine.hpp"
+#include "Grain/Primitive/GRAPRMRect.hpp"
+#include "Grain/Primitive/GRAPRMCircle.hpp"
 
-template <typename T> class GRACollision {
+template <typename T> class GRALIBCollision {
 public:
   /*
   static bool IsCollideWithPointAndPoint(const PLAPoint &aPoint0,
@@ -48,13 +48,13 @@ public:
   };
 
   static bool IsCollideWithPointAndLine(const GRAPoint<T> &aPoint,
-                                        const GRALine<T> &aLine)
+                                        const GRAPRMLine<T> &aLine)
   {
     return false;
   };
 
   static bool IsCollideWithPointAndRect(const GRAPoint<T> &aPoint,
-                                        const GRARect<T> &aRect)
+                                        const GRAPRMRect<T> &aRect)
   {
     if (aPoint.x < aRect.pos.x) { return false; }
     if (aPoint.y < aRect.pos.y) { return false; }
@@ -64,33 +64,33 @@ public:
   };
 
   static bool IsCollideWithPointAndCircle(const GRAPoint<T> &aPoint,
-                                          const GRACircle<T> &aCircle)
+                                          const GRAPRMCircle<T> &aCircle)
   {
     return
       aCircle.radius >
       abs(hypot(aCircle.origin.x - aPoint.x, aCircle.origin.y - aPoint.y));
   };
 
-  static bool IsCollideWithLineAndLine(const GRALine<T> &aLine0,
-                                       const GRALine<T> &aLine1)
+  static bool IsCollideWithLineAndLine(const GRAPRMLine<T> &aLine0,
+                                       const GRAPRMLine<T> &aLine1)
   {
     return false;
   };
 
-  static bool IsCollideWithLineAndRect(const GRALine<T> &aLine,
-                                       const GRARect<T> &aRect)
+  static bool IsCollideWithLineAndRect(const GRAPRMLine<T> &aLine,
+                                       const GRAPRMRect<T> &aRect)
   {
     return false;
   };
 
-  static bool IsCollideWithLineAndCircle(const GRALine<T> &aLine,
-                                         const GRACircle<T> &aCircle)
+  static bool IsCollideWithLineAndCircle(const GRAPRMLine<T> &aLine,
+                                         const GRAPRMCircle<T> &aCircle)
   {
     return false;
   };
 
-  static bool IsCollideWithRectAndRect(const GRARect<T> &aRect0,
-                                       const GRARect<T> &aRect1)
+  static bool IsCollideWithRectAndRect(const GRAPRMRect<T> &aRect0,
+                                       const GRAPRMRect<T> &aRect1)
   {
     if ((aRect1.pos.x + aRect1.size.x) <= aRect0.pos.x) { return false; }
     if ((aRect1.pos.y + aRect1.size.y) <= aRect0.pos.y) { return false; }
@@ -99,18 +99,18 @@ public:
     return true;
   };
 
-  static bool IsCollideWithRectAndCircle(const GRARect<T> &aRect,
-                                         const GRACircle<T> &aCircle)
+  static bool IsCollideWithRectAndCircle(const GRAPRMRect<T> &aRect,
+                                         const GRAPRMCircle<T> &aCircle)
   {
-    GRARect combinedRect = aRect;
+    GRAPRMRect combinedRect = aRect;
     combinedRect.pos.x -= aCircle.radius;
     combinedRect.pos.y -= aCircle.radius;
     combinedRect.size.x += aCircle.radius * 2;
     combinedRect.size.y += aCircle.radius * 2;
-    if (!GRACollision::IsCollideWithPointAndRect(aCircle.origin, combinedRect))
+    if (!GRALIBCollision::IsCollideWithPointAndRect(aCircle.origin, combinedRect))
     { return false; }
 
-    if (GRACollision::IsCollideWithPointAndRect(aCircle.origin, aRect))
+    if (GRALIBCollision::IsCollideWithPointAndRect(aCircle.origin, aRect))
     { return true; }
 
     GRAPoint<T> nearestPoint = GRAPoint<T>(0, 0);
@@ -122,11 +122,11 @@ public:
       abs(aCircle.origin.y - aRect.pos.y) <=
       abs(aCircle.origin.y - (aRect.pos.y + aRect.size.y)) ?
       aRect.pos.y : aRect.pos.y + aRect.size.y;
-    return GRACollision::IsCollideWithPointAndCircle(nearestPoint, aCircle);
+    return GRALIBCollision::IsCollideWithPointAndCircle(nearestPoint, aCircle);
   };
 
-  static bool IsCollideWithCircleAndCircle(const GRACircle<T> &aCircle0,
-                                           const GRACircle<T> &aCircle1)
+  static bool IsCollideWithCircleAndCircle(const GRAPRMCircle<T> &aCircle0,
+                                           const GRAPRMCircle<T> &aCircle1)
   {
     return
       aCircle0.radius + aCircle1.radius >

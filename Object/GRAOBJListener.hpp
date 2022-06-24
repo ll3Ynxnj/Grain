@@ -5,11 +5,11 @@
 #ifndef GRAIN_PLALISTENER_HPP
 #define GRAIN_PLALISTENER_HPP
 
-#include "Grain/Object/GRAFunctor.hpp"
+#include "Grain/Object/GRAOBJFunctor.hpp"
 
-template <typename Context, typename Key> class GRAListener
+template <typename Context, typename Key> class GRAOBJListener
 {
-  GRAFunctor<Context, Key> _functor = GRAFunctor<Context, Key>();
+  GRAOBJFunctor<Context, Key> _functor = GRAOBJFunctor<Context, Key>();
 
 public:
   void RunListener(Key aKey, Context *aContext)

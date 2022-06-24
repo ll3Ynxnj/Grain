@@ -5,14 +5,14 @@
 #include <string>
 #include <functional>
 
-template <typename Context, typename Key> class GRAFunctor
+template <typename Context, typename Key> class GRAOBJFunctor
 {
   std::map<Key, std::function<void(Context *)>> _functions =
     std::map<Key, std::function<void(Context *)>>();
 
 public:
-  GRAFunctor() {};
-  ~GRAFunctor() {};
+  GRAOBJFunctor() {};
+  ~GRAOBJFunctor() {};
 
   void RunFunction(const Key &aKey, Context *aContext) const
   {

@@ -8,7 +8,7 @@
 #include "Grain/Grain-Util.h"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
-template <typename T> class GRABinder
+template <typename T> class GRAOBJBinder
 {
 public:
   enum class Error : GRAInt
@@ -35,12 +35,12 @@ public:
   {
     size_t _id = kGRASizeUndefined;
     std::string _name = kGRAStrUndefined;
-    GRABinder *_binder = nullptr;
+    GRAOBJBinder *_binder = nullptr;
 
   protected:
-    Item(const std::string &aName, GRABinder<T> *aBinder) :
+    Item(const std::string &aName, GRAOBJBinder<T> *aBinder) :
     _name(aName), _binder(aBinder) {}
-    explicit Item(GRABinder<T> *aBinder) : _binder(aBinder) {}
+    explicit Item(GRAOBJBinder<T> *aBinder) : _binder(aBinder) {}
 
   public:
     Item() {};
@@ -80,8 +80,8 @@ private:
   std::stack<size_t> _emptyIndices = std::stack<size_t>();
 
 public:
-  GRABinder() {};
-  virtual ~GRABinder() {};
+  GRAOBJBinder() {};
+  virtual ~GRAOBJBinder() {};
 
   void Init(Error *aError) {};
 
@@ -91,7 +91,7 @@ public:
       size_t id = _emptyIndices.top();
       aItem->SetId(id);
       if (_items[id] != nullptr)
-      //{ PLA_ERROR_ISSUE(PLAErrorType::Assert, "Overwrite pointer not nullptr."); }
+      //{ PLA_ERROR_ISSUE(PLAOBJErrorType::Assert, "Overwrite pointer not nullptr."); }
       { *aError = Error::OverwriteItem; }
       _items[id] = aItem;
       _emptyIndices.pop();
