@@ -83,7 +83,7 @@ public:
   GRAOBJBinder() {};
   virtual ~GRAOBJBinder() {};
 
-  void Init(Error *aError) {};
+  void Init(Error *aError = nullptr) {};
 
   void Bind(Item *aItem, Error *aError)
   {
