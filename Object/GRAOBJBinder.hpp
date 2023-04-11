@@ -91,8 +91,9 @@ public:
       size_t id = _emptyIndices.top();
       aItem->SetId(id);
       if (_items[id] != nullptr)
-      //{ PLA_ERROR_ISSUE(PLAOBJErrorType::Assert, "Overwrite pointer not nullptr."); }
-      { *aError = Error::OverwriteItem; }
+      {
+        *aError = Error::OverwriteItem;
+      }
       _items[id] = aItem;
       _emptyIndices.pop();
     } else {
@@ -177,7 +178,8 @@ public:
                                      aItem->GetId()),
                      aError);
     }
-    _itemMap[aItem->GetName()] = aItem->GetId();
+    auto name = aItem->GetName();
+    _itemMap[name] = aItem->GetId();
   }
 
   void UpdateMap(const std::string &aFrom, const std::string&aTo)
