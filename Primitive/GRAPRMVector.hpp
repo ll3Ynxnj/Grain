@@ -1,6 +1,8 @@
 #ifndef GRAIN_GRAVECTOR_HPP
 #define GRAIN_GRAVECTOR_HPP
 
+#include <sstream>
+
 template <typename T> struct GRAVec2
 {
   T x = 0, y = 0;
@@ -24,6 +26,13 @@ template <typename T> struct GRAVec2
   void operator -=(const Vec2 &v) { *this = { x - v.x, y - v.y }; };
   void operator *=(T s) { *this = { x * s, y * s }; };
   void operator /=(T s) { *this = { x / s, y / s }; };
+
+  std::string str() const
+  {
+    std::stringstream ss;
+    ss << "GRAVec2<T> x: " << x << ", y: " << y;
+    return ss.str();
+  }
 };
 
 template <typename T> struct GRAVec3
@@ -52,6 +61,13 @@ template <typename T> struct GRAVec3
   void operator -=(const Vec3 &v) { x -= v.x; y -= v.y; z -= v.z; }
   void operator *=(T s) { x *= s; y *= s; z *= s; }
   void operator /=(T s) { x /= s; y /= s; z /= s; }
+
+  std::string str() const
+  {
+    std::stringstream ss;
+    ss << "GRAVec3<T> x: " << x << ", y: " << y << ", z: " << z;
+    return ss.str();
+  }
 };
 
 template <typename T> struct GRAVec4
@@ -81,6 +97,13 @@ template <typename T> struct GRAVec4
   void operator -=(const Vec4 &v) { x -= v.x; y -= v.y; z -= v.z; w -= v.w; }
   void operator *=(T s) { x *= s; y *= s; z *= s; w *= s; }
   void operator /=(T s) { x /= s; y /= s; z /= s; w /= s; }
+
+  std::string str() const
+  {
+    std::stringstream ss;
+    ss << "GRAVec4<T> x: " << x << ", y: " << y << ", z: " << z << ", w: " << w;
+    return ss.str();
+  }
 };
 
 #endif // GRAIN_GRAVECTOR_HPP
