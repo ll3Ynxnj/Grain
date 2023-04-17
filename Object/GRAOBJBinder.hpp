@@ -5,7 +5,8 @@
 #include <stack>
 #include <map>
 
-#include "Grain/Grain-Util.h"
+#include "Grain/Grain.h"
+#include "Grain/Primitive/GRAPRMType.hpp"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
 template <typename T> class GRAOBJBinder
@@ -53,7 +54,7 @@ public:
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
       std::string newName = aName;
-      if (_name != kPLAStrUndefined) {
+      if (_name != kGRAStrUndefined) {
         if (_name != aName) {
           *aError = Error::NameOverride;
           if (_binder->IsExistItem(aName)) {
