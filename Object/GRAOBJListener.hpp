@@ -12,11 +12,11 @@ template <typename Context, typename Key> class GRAOBJListener
   GRAOBJFunctor<Context, Key> _functor = GRAOBJFunctor<Context, Key>();
 
 public:
-  void RunListener(Key aKey, Context *aContext)
+  void RunListener(Key aKey, Context aContext)
   { _functor.RunFunction(aKey, aContext); }
 
   void SetListener(Key aKey,
-                   const std::function<void(Context *)> &aFunc)
+                   const std::function<void(Context)> &aFunc)
   { _functor.SetFunction(aKey, aFunc); }
 };
 
