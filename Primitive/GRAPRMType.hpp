@@ -74,6 +74,11 @@ using GRASize = size_t;
 static const GRASize kGRASizeMax = SIZE_MAX;
 static const GRASize kGRASizeUndefined = kGRASizeMax;
 
+//-- Character Value --/////////////////////////////////////////////////////////
+using GRAChar = GRAUByte;
+static const GRAChar kGRACharMax = kGRAUByteMax;
+static const GRAChar kGRACharUndefined = kGRACharMax;
+
 //-- StringValue --/////////////////////////////////////////////////////////////
 using GRAString = std::string;
 static const char *kGRAStrUndefined  = " == UNDEFINED == ";
