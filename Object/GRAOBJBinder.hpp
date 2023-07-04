@@ -172,7 +172,7 @@ public:
   GRABool IsExistItem(const std::string &aName)
   {
     Error error;
-    const Item *item = this->GetItem(aName, &error);
+    const Item *item = this->GetItemWithName(aName, &error);
     return item;
   }
 
@@ -185,15 +185,26 @@ public:
 
   const std::vector<Item *> &GetItems() const { return _items; }
 
+  [[deprecated("This method is deprecated. Use GetItemWithName() instead.")]]
   const Item *GetItem(const std::string &aName, Error *aError) const
   {
-    auto item = RefItem(aName, aError);
-    return item;//RefItem(aName, aError);
+    return GetItemWithName(aName, aError);
   };
 
+  const Item *GetItemWithName(const std::string &aName, Error *aError) const
+  {
+    return RefItemWithName(aName, aError);
+  };
+
+  [[deprecated("This method is deprecated. Use GetItemWithId() instead.")]]
   const Item *GetItem(GRASize aId, Error *aError)
   {
-    return RefItem(aId, aError);
+    return GetItemWithId(aId, aError);
+  };
+
+  const Item *GetItemWithId(GRASize aId, Error *aError)
+  {
+    return RefItemWithId(aId, aError);
   };
 
   const Item *GetItemWithTag(GRASize aTag, Error *aError)
