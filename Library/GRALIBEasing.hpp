@@ -58,6 +58,10 @@ public:
     EaseOutBounce,
     EaseInOutBounce,
 
+    StepIn,
+    StepOut,
+    StepInOut,
+
     kNumberOfItems,
 
     NONE,
@@ -214,6 +218,18 @@ public:
            : (1 + EaseOutBounce(2 * t - 1)) / 2;
   }
 
+  static GRAFloat StepIn(GRAFloat t) {
+    return t == 0 ? 0 : 1;
+  }
+
+  static GRAFloat StepOut(GRAFloat t) {
+    return t == 1 ? 0 : 1;
+  }
+
+  static GRAFloat StepInOut(GRAFloat t) {
+    return t < 0.5 ? 0 : 1;
+  }
+
   static GRAFloat GetEasing(Type type, GRAFloat t) {
     switch (type) {
       case Type::Linear:           return t;
@@ -247,6 +263,9 @@ public:
       case Type::EaseInBounce:     return EaseInBounce(t);
       case Type::EaseOutBounce:    return EaseOutBounce(t);
       case Type::EaseInOutBounce:  return EaseInOutBounce(t);
+      case Type::StepIn:           return StepIn(t);
+      case Type::StepOut:          return StepOut(t);
+      case Type::StepInOut:        return StepInOut(t);
       default:
         GRA_ASSERT("Unknown easing type");
     }
