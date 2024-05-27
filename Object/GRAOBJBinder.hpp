@@ -5,8 +5,8 @@
 #include <stack>
 #include <map>
 
-#include "Grain/Grain.h"
-#include "Grain/Primitive/GRAPRMType.hpp"
+#include "Grain.h"
+#include "Primitive/GRAPRMType.hpp"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
 template <typename T> class GRAOBJBinder

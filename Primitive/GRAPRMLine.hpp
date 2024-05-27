@@ -1,6 +1,8 @@
 #ifndef PLAIN_GRALINE_HPP
 #define PLAIN_GRALINE_HPP
 
+#include "GRAPRMVector.hpp"
+
 template <typename T> struct GRAPRMLine
 {
   GRAVec2<T> p0;

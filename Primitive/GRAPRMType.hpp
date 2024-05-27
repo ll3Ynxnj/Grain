@@ -1,6 +1,8 @@
 #ifndef GRAIN_PLATYPE_HPP
 #define GRAIN_PLATYPE_HPP
 
+#include <cstdint>
+
 //-- Boolean value --///////////////////////////////////////////////////////////
 using GRABool = bool;
 

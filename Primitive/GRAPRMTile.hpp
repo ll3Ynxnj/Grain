@@ -2,6 +2,7 @@
 #define GRAIN_PLATILE_HPP
 
 #include "GRAPRMType.hpp"
+#include "GRAPRMVector.hpp"
 
 template <typename T> struct GRAPRMTile
 {

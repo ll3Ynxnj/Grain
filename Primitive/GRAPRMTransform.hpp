@@ -1,6 +1,8 @@
 #ifndef GRAIN_GRATRANSFORM_HPP
 #define GRAIN_GRATRANSFORM_HPP
 
+#include "GRAPRMVector.hpp"
+
 template <typename T> struct GRAPRMTransform
 {
   GRAVec3<T> translation, rotation, scale;
