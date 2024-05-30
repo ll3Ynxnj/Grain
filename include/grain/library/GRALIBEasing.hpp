@@ -8,8 +8,8 @@
 #define ANHR_GRALIBEASING_HPP
 
 #include <math.h>
-#include "../Grain-Macro.h"
-#include "../Primitive/GRAPRMType.hpp"
+#include "../../../Grain-Macro.h"
+#include "grain/primitive/GRAPRMType.hpp"
 
 class GRALIBEasing
 {

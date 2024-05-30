@@ -11,7 +11,7 @@
 #include <sstream>
 #include <vector>
 
-#include "Primitive/GRAPRMType.hpp"
+#include "grain/primitive/GRAPRMType.hpp"
 
 // GRAStringがstd::stringのラッパークラスとなった場合、ここで示されている静的メソッドは、
 // GRAStringの定義に含めることとする。

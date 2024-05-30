@@ -1,10 +1,10 @@
 #ifndef GRAIN_PLACOLLISION_HPP
 #define GRAIN_PLACOLLISION_HPP
 
-#include "Primitive/GRAPRMPoint.hpp"
-#include "Primitive/GRAPRMLine.hpp"
-#include "Primitive/GRAPRMRect.hpp"
-#include "Primitive/GRAPRMCircle.hpp"
+#include "grain/primitive/GRAPRMPoint.hpp"
+#include "grain/primitive/GRAPRMLine.hpp"
+#include "grain/primitive/GRAPRMRect.hpp"
+#include "grain/primitive/GRAPRMCircle.hpp"
 
 template <typename T> class GRALIBCollision {
 public:
