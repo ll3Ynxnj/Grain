@@ -5,7 +5,7 @@
 #include <stack>
 #include <map>
 
-#include "Grain.h"
+#include "grain/grain.h"
 #include "grain/primitive/GRAPRMType.hpp"
 
 //-- Templated to prevent conflicts when multiple inheritance is done.
