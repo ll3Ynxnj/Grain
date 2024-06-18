@@ -82,6 +82,9 @@ public:
 
     void SetId(size_t aId) { _id = aId; };
     void SetName(const std::string &aName, Error *aError) {
+      if (aName == "PLAApp::Stage::Context") {
+        GRA_TRACE("");
+      }
       std::string newName = aName;
       if (_name != kGRAStrUndefined) {
         if (_name != aName) {
@@ -257,13 +260,8 @@ public:
 
   void RegisterToMap(Item *aItem, Error *aError)
   {
-    /*
-    if (aItem->GetName() == kGRAStrUndefined) {
-      // *aError = Error::RegisterUndefinedKeyToMap;
-      return;
-    }
-     */
-    if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
+    GRA_PRINT("aItem->GetName(): %s\n", aItem->GetName().c_str());
+    if (_itemMap.find(aItem->GetName()) != _itemMap.end()) { 
       *aError = Error::RegisterExistingKeyToMap;
       return;
     }
@@ -275,10 +273,10 @@ public:
     else if (_itemMap.contains(aItem->GetName())) {
       aItem->SetName(grautil::format("%s-%d",
                                      aItem->GetName().c_str(),
-                                     aItem->GetId()),
-                                     aError);
+                                     aItem->GetId()), aError);
     }
     auto name = aItem->GetName();
+    GRA_PRINT("name: %s\n", name.c_str());
     _itemMap[name] = aItem->GetId();
   }
 
