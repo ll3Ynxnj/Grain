@@ -68,6 +68,6 @@ GRADebug::Assert(__FILE__, __FUNCTION__, __LINE__, __VA_ARGS__)\
 aTypeName(const aTypeName&);\
 void operator=(const aTypeName&)\
 
-#endif // GRAIN_GRAINMACRO_H
-
 #pragma clang diagnostic pop
+
+#endif // GRAIN_GRAINMACRO_H
