@@ -260,8 +260,8 @@ public:
 
   void RegisterToMap(Item *aItem, Error *aError)
   {
-    GRA_PRINT("aItem->GetName(): %s\n", aItem->GetName().c_str());
-    if (_itemMap.find(aItem->GetName()) != _itemMap.end()) { 
+    GRA_DEBUG("aItem->GetName(): %s\n", aItem->GetName().c_str());
+    if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
       *aError = Error::RegisterExistingKeyToMap;
       return;
     }
@@ -276,7 +276,7 @@ public:
                                      aItem->GetId()), aError);
     }
     auto name = aItem->GetName();
-    GRA_PRINT("name: %s\n", name.c_str());
+    GRA_DEBUG("name: %s\n", name.c_str());
     _itemMap[name] = aItem->GetId();
   }
 

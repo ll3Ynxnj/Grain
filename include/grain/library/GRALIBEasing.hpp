@@ -272,7 +272,7 @@ public:
       case Type::StepOut:          return StepOut(t);
       case Type::StepInOut:        return StepInOut(t);
       default:
-        GRA_ASSERT("Unknown easing type");
+        GRA_UNREACHABLE("Unknown easing type");
         return 0.0f;
     }
   }
