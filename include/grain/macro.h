@@ -80,7 +80,7 @@ namespace GRADebug
     va_end(args);
   }
 
-  static void Abort()
+  [[noreturn]] static void Abort()
   {
     exit(1);
   }
