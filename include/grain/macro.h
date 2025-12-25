@@ -82,7 +82,9 @@ namespace GRADebug
 
   [[noreturn]] static void Abort()
   {
-    exit(1);
+    // Use std::abort() instead of exit(1) to avoid calling destructors
+    // which may cause segfaults during cleanup (e.g., thread termination)
+    std::abort();
   }
 }
 
