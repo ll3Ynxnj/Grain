@@ -53,6 +53,8 @@ template <typename T> struct GRAVec3
   Vec3 operator *(T s) const { return { x * s, y * s, z * s }; }
   Vec3 operator /(T s) const { return { x / s, y / s, z / s }; }
 
+  Vec3 scale(const Vec3 &v) const { return { x * v.x, y * v.y, z * v.z }; }
+
   Vec3 operator -() const { return { -x, -y, -z }; }
 
   bool operator ==(const Vec3 &v) const
@@ -62,6 +64,8 @@ template <typename T> struct GRAVec3
   void operator -=(const Vec3 &v) { x -= v.x; y -= v.y; z -= v.z; }
   void operator *=(T s) { x *= s; y *= s; z *= s; }
   void operator /=(T s) { x /= s; y /= s; z /= s; }
+
+  void scaleBy(const Vec3 &v) { x *= v.x; y *= v.y; z *= v.z; }
 
   std::string str() const
   {
