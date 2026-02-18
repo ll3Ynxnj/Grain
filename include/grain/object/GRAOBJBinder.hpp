@@ -4,6 +4,7 @@
 #include <vector>
 #include <stack>
 #include <map>
+#include <mutex>
 
 #include "grain/grain.h"
 #include "grain/primitive/GRAPRMType.hpp"
@@ -129,6 +130,7 @@ public:
     }
   };
 private:
+  mutable std::recursive_mutex _mutex;
   std::vector<Item *> _items = std::vector<Item *>();
   std::map<std::string, GRASize> _itemMap = std::map<std::string, GRASize>();
   std::map<GRASize, GRASize> _tagMap = std::map<GRASize, GRASize>();
@@ -142,6 +144,7 @@ public:
 
   void Bind(Item *aItem, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     if (_emptyIndices.size()) {
       size_t id = _emptyIndices.top();
       aItem->SetId(id);
@@ -161,6 +164,7 @@ public:
 
   void Unbind(Item *aItem, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     _items[aItem->GetId()] = nullptr;
     /*
     if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
@@ -174,6 +178,7 @@ public:
 
   GRABool IsExistItem(const std::string &aName)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     Error error;
     const Item *item = this->GetItemWithName(aName, &error);
     return item;
@@ -181,12 +186,16 @@ public:
 
   GRABool IsExistItemWithTag(PLAId aTag)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     Error error(Error::None);
     const Item *item = this->GetItemWithTag(aTag, &error);
     return item;
   }
 
-  const std::vector<Item *> &GetItems() const { return _items; }
+  const std::vector<Item *> &GetItems() const {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
+    return _items;
+  }
 
   [[deprecated("This method is deprecated. Use GetItemWithName() instead.")]]
   const Item *GetItem(const std::string &aName, Error *aError) const
@@ -196,6 +205,7 @@ public:
 
   const Item *GetItemWithName(const std::string &aName, Error *aError) const
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     return RefItemWithName(aName, aError);
   };
 
@@ -207,11 +217,13 @@ public:
 
   const Item *GetItemWithId(GRASize aId, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     return RefItemWithId(aId, aError);
   };
 
   const Item *GetItemWithTag(GRASize aTag, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     return RefItemWithTag(aTag, aError);
   }
 
@@ -223,6 +235,7 @@ public:
 
   Item *RefItemWithId(GRASize aId, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     if (aId < _items.size()) {
       return _items.at(aId);
     } else {
@@ -239,6 +252,7 @@ public:
 
   Item *RefItemWithName(const std::string &aName, Error *aError) const
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     try {
       return _items.at(_itemMap.at(aName));
     } catch(std::out_of_range) {
@@ -249,6 +263,7 @@ public:
 
   Item *RefItemWithTag(GRASize aTag, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     try {
       auto id = _tagMap.at(aTag);
       return this->RefItemWithId(id, aError);
@@ -260,6 +275,7 @@ public:
 
   void RegisterToMap(Item *aItem, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     GRA_DEBUG("aItem->GetName(): %s\n", aItem->GetName().c_str());
     if (_itemMap.find(aItem->GetName()) != _itemMap.end()) {
       *aError = Error::RegisterExistingKeyToMap;
@@ -282,6 +298,7 @@ public:
 
   void RegisterToTagMap(Item *aItem, Error *aError)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     if (aItem->GetTag() == kGRAIdUndefined) {
       //*aError = Error::RegisterUndefinedTagToMap;
       return;
@@ -294,18 +311,26 @@ public:
     _tagMap[tag] = aItem->GetId();
   }
 
-  void InsertMap(PLAId aId, const std::string &aKey) { _itemMap[aKey] = aId; }
+  void InsertMap(PLAId aId, const std::string &aKey) {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
+    _itemMap[aKey] = aId;
+  }
 
   void UpdateMap(const std::string &aFrom, const std::string &aTo)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     _itemMap[aTo] = _itemMap.at(aFrom);
     _itemMap.erase(aFrom);
   }
 
-  void InsertTagMap(PLAId aId, GRASize aTag) { _tagMap[aTag] = aId; }
+  void InsertTagMap(PLAId aId, GRASize aTag) {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
+    _tagMap[aTag] = aId;
+  }
 
   void UpdateTagMap(GRASize aFrom, GRASize aTo)
   {
+    std::lock_guard<std::recursive_mutex> lock(_mutex);
     _tagMap[aTo] = _tagMap.at(aFrom);
     _tagMap.erase(aFrom);
   }
