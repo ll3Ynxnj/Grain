@@ -4,8 +4,8 @@
 // Created by Kentaro Kawai on 2023/06/22.
 //
 
-#ifndef ANHR_GRALIBSTRING_HPP
-#define ANHR_GRALIBSTRING_HPP
+#ifndef GRAIN_GRALIBSTRING_HPP
+#define GRAIN_GRALIBSTRING_HPP
 
 #include <string>
 #include <sstream>
@@ -36,4 +36,4 @@ class GRALIBString
   };
 };
 
-#endif //ANHR_GRALIBSTRING_HPP
+#endif //GRAIN_GRALIBSTRING_HPP

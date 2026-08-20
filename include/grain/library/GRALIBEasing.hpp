@@ -4,8 +4,8 @@
 // Created by Kentaro Kawai on 2023/07/25.
 //
 
-#ifndef ANHR_GRALIBEASING_HPP
-#define ANHR_GRALIBEASING_HPP
+#ifndef GRAIN_GRALIBEASING_HPP
+#define GRAIN_GRALIBEASING_HPP
 
 #include <math.h>
 #include "grain/macro.h"
@@ -278,4 +278,4 @@ public:
   }
 };
 
-#endif //ANHR_GRALIBEASING_HPP
+#endif //GRAIN_GRALIBEASING_HPP

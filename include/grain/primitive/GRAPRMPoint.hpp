@@ -1,9 +1,9 @@
-#ifndef PLAIN_GRAPOINT_HPP
-#define PLAIN_GRAPOINT_HPP
+#ifndef GRAIN_GRAPOINT_HPP
+#define GRAIN_GRAPOINT_HPP
 
 #include "GRAPRMVector.hpp"
 
 template <typename T>
 using GRAPoint = GRAVec2<T>;
 
-#endif //PLAIN_GRAPOINT_HPP
+#endif //GRAIN_GRAPOINT_HPP

@@ -1,5 +1,5 @@
-#ifndef PLAIN_GRALINE_HPP
-#define PLAIN_GRALINE_HPP
+#ifndef GRAIN_GRALINE_HPP
+#define GRAIN_GRALINE_HPP
 
 #include "GRAPRMVector.hpp"
 
@@ -12,4 +12,4 @@ template <typename T> struct GRAPRMLine
     p0(aP0), p1(aP1) {};
 };
 
-#endif //PLAIN_GRALINE_HPP
+#endif //GRAIN_GRALINE_HPP
